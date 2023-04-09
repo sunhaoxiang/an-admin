@@ -1,7 +1,7 @@
 import { Navigate, useRoutes } from 'react-router-dom'
-import Dashboard from '../pages/Dashboard'
-import Login from '../pages/Login'
-import NotFound from '../pages/NotFound'
+import Dashboard from '@/pages/Dashboard'
+import Login from '@/pages/Login'
+import NotFound from '@/pages/NotFound'
 
 const rootRouter = [
   {
@@ -18,7 +18,7 @@ const rootRouter = [
     element: <Dashboard />
   },
   {
-    path: '/404/',
+    path: '/404',
     element: <NotFound />
   },
   {
