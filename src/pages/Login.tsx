@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Form, Input, Button} from 'antd'
-import {} from '@ant-design/icons'
+import { UserOutlined, LockOutlined } from '@ant-design/icons'
 import './Login.css'
 
 const Login = () => {
@@ -21,14 +21,18 @@ const Login = () => {
           size="large"
           onFinish={onFinish}
         >
-          <Form.Item>
-            <Input placeholder="Username" />
+          <Form.Item name="username" rules={
+            [ {required: true, message: 'Please enter the username'} ]
+          }>
+            <Input placeholder="Username" prefix={<UserOutlined />} />
+          </Form.Item>
+          <Form.Item name="password" rules={
+            [ {required: true, message: 'Please enter the password'} ]
+          }>
+            <Input.Password placeholder="Password" prefix={<LockOutlined />} />
           </Form.Item>
           <Form.Item>
-            <Input placeholder="Password" />
-          </Form.Item>
-          <Form.Item>
-            <Button type="primary" htmlType="submit">Login</Button>
+            <Button type="primary" htmlType="submit">Submit</Button>
           </Form.Item>
         </Form>
       </div>
