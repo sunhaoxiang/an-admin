@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Form, Input, Button} from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons'
+import CanvasBackground from "@/components/CanvasBackground"
 import './Login.css'
 
 const Login = () => {
@@ -36,6 +37,7 @@ const Login = () => {
           </Form.Item>
         </Form>
       </div>
+      <CanvasBackground />
     </div>
   )
 }
