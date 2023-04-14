@@ -1,17 +1,18 @@
-import { useRef, useEffect } from 'react'
-import { Circle, CircleType } from '@/utils/canvasBall'
+import { useEffect, useRef } from 'react'
+import type { CircleType } from '@/utils/canvasBall'
+import { Circle } from '@/utils/canvasBall'
 import './canvasBackground.css'
 
-const CanvasBackground = () => {
+function CanvasBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  let currentCircle: CircleType = new Circle(-1, -1, 8)
+  const currentCircle: CircleType = new Circle(-1, -1, 8)
 
   useEffect(() => {
     const canvas = canvasRef.current as HTMLCanvasElement
     const ctx = canvas.getContext('2d') as CanvasRenderingContext2D
     const w = canvas.width = window.innerWidth
     const h = canvas.height = window.innerHeight
-    let circles: CircleType[] = []
+    const circles: CircleType[] = []
 
     function draw() {
       ctx.clearRect(0, 0, w, h)
@@ -19,15 +20,13 @@ const CanvasBackground = () => {
         circles[i].move(w, h)
         circles[i].drawCircle(ctx)
 
-        for (let j = i + 1; j < circles.length; j++) {
+        for (let j = i + 1; j < circles.length; j++)
           circles[i].drawLine(ctx, circles[j])
-        }
       }
       if (currentCircle.x > 0 && currentCircle.y > 0) {
         currentCircle.drawCircle(ctx)
-        for (let k = 0; k < circles.length; k++) {
+        for (let k = 0; k < circles.length; k++)
           currentCircle.drawLine(ctx, circles[k])
-        }
       }
       window.requestAnimationFrame(draw)
     }
@@ -40,7 +39,6 @@ const CanvasBackground = () => {
     }
     init(60)
   }, [])
-
 
   return (
     <canvas

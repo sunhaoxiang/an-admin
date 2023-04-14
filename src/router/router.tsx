@@ -6,28 +6,28 @@ import NotFound from '@/pages/NotFound'
 const rootRouter = [
   {
     path: '/',
-    element: <Navigate to='/dashboard' replace={true} />
+    element: <Navigate to='/dashboard' replace={true} />,
   },
   {
     path: '/login',
-    element: <Login />
+    element: <Login />,
   },
   {
     // need to be logged in to access this route
     path: '/dashboard',
-    element: <Dashboard />
+    element: <Dashboard />,
   },
   {
     path: '/404',
-    element: <NotFound />
+    element: <NotFound />,
   },
   {
     path: '*',
-    element: <Navigate to="/404" replace={true} />
-  }
+    element: <Navigate to="/404" replace={true} />,
+  },
 ]
 
-const router = () => {
+function router() {
   const routes = useRoutes(rootRouter)
 
   return routes

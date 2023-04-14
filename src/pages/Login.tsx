@@ -1,14 +1,14 @@
 import { useState } from 'react'
-import { Form, Input, Button} from 'antd'
-import { UserOutlined, LockOutlined } from '@ant-design/icons'
-import CanvasBackground from "@/components/CanvasBackground"
+import { Button, Form, Input, Space } from 'antd'
+import { LockOutlined, UserOutlined } from '@ant-design/icons'
+import SparkMd5 from 'spark-md5'
+import CanvasBackground from '@/components/CanvasBackground'
 import './Login.css'
 
-const Login = () => {
+function Login() {
   const [form] = Form.useForm()
 
   function onFinish(values: any) {
-    console.log('Success:', values)
   }
 
   return (
@@ -23,12 +23,12 @@ const Login = () => {
           onFinish={onFinish}
         >
           <Form.Item name="username" rules={
-            [ {required: true, message: 'Please enter the username'} ]
+            [{ required: true, message: 'Please enter the username' }]
           }>
             <Input placeholder="Username" prefix={<UserOutlined />} />
           </Form.Item>
           <Form.Item name="password" rules={
-            [ {required: true, message: 'Please enter the password'} ]
+            [{ required: true, message: 'Please enter the password' }]
           }>
             <Input.Password placeholder="Password" prefix={<LockOutlined />} />
           </Form.Item>
