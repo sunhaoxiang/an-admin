@@ -3,14 +3,9 @@ import { Button, Form, Input, Space } from 'antd'
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
 import axios from 'axios'
 import SparkMd5 from 'spark-md5'
+import type { LoginData } from '@/types/user'
 import CanvasBackground from '@/components/CanvasBackground'
 import './Login.css'
-
-interface LoginData {
-  email: string
-  passwd: string
-  captcha: string
-}
 
 function Login() {
   const [form] = Form.useForm()
