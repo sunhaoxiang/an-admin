@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Button, Form, Input, Space } from 'antd'
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
-import axios from 'axios'
 import SparkMd5 from 'spark-md5'
+import { userLoginApi } from '@/api/user'
 import type { LoginData } from '@/types/user'
 import CanvasBackground from '@/components/CanvasBackground'
 import './Login.css'
@@ -11,20 +11,14 @@ function Login() {
   const [form] = Form.useForm()
 
   function onFinish(values: LoginData) {
-    console.log(values)
     const obj: LoginData = {
       email: values.email,
       passwd: SparkMd5.hash(values.passwd),
       captcha: values.captcha
     }
-    axios.post('/api/user/login', obj, {
-      headers: {
-        'apiKey': import.meta.env.VITE_APP_API_KEY
-      }
+    userLoginApi(obj).then(res => {
+      console.log(res)
     })
-      .then(res => {
-        console.log(res)
-      })
   }
 
   const [captcha, setCaptcha] = useState('/api/captcha')
