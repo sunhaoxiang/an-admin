@@ -11,5 +11,15 @@ export default defineConfig({
     alias: {
       '@': res('src')
     }
+  },
+  server: {
+    proxy: {
+      '/api/': {
+        target: 'http://shengxinjing.cn:7001/',
+        changeOrigin: true,
+        secure: false,
+        rewrite: path => path.replace(/^\/api/, '')
+      }
+    }
   }
 })
