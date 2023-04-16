@@ -81,7 +81,9 @@ function Login() {
           }>
             <Input.Password placeholder="Password" prefix={<LockOutlined />} />
           </Form.Item>
-          <Form.Item name="captcha">
+          <Form.Item name="captcha" rules={
+            [{ required: true, message: 'Please enter the captcha' }]
+          }>
             <Space>
               <Input placeholder="Captcha" />
               <img src={captcha} onClick={handleCaptcha} alt="captcha" />
