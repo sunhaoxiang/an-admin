@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
-import type { CircleType } from '@/utils/canvasBall'
-import { Circle } from '@/utils/canvasBall'
+import type { CircleType } from '@/utils'
+import { Circle } from '@/utils'
 import './canvasBackground.css'
 
 function CanvasBackground() {
