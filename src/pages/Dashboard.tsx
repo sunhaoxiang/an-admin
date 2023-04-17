@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { axios } from '@/utils'
 import { useAuth } from '@/hooks/useAuth'
 
-function Dashboard() {
+const Dashboard = () => {
   const auth = useAuth()
 
   const [data, setData] = useState([])

@@ -1,12 +1,18 @@
 import { createContext, useState } from 'react'
 import type { ReactNode } from 'react'
 import type { LoginRes } from '@/types/user'
-import type { AuthContextType } from '@/types/context'
 
 const emptyUser: LoginRes = {
   _id: '',
   email: '',
   token: ''
+}
+
+export interface AuthContextType {
+  user: LoginRes
+  login: (user: LoginRes) => void
+  logout: () => void
+  setToken: (token: string) => void
 }
 
 export const AuthContext = createContext<AuthContextType|null>(null)

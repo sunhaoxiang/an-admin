@@ -3,6 +3,8 @@ import Dashboard from '@/pages/Dashboard'
 import Login from '@/pages/Login'
 import NotFound from '@/pages/NotFound'
 
+const authRouter = []
+
 const rootRouter = [
   {
     path: '/',
@@ -12,11 +14,7 @@ const rootRouter = [
     path: '/login',
     element: <Login />,
   },
-  {
-    // need to be logged in to access this route
-    path: '/dashboard',
-    element: <Dashboard />,
-  },
+  ...authRouter,
   {
     path: '/404',
     element: <NotFound />,

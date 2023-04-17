@@ -10,7 +10,7 @@ import { storage } from '@/utils'
 import CanvasBackground from '@/components/CanvasBackground'
 import './Login.css'
 
-function Login() {
+const Login = () => {
   const [form] = Form.useForm()
   const navigate = useNavigate()
   const auth = useAuth()
