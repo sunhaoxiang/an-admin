@@ -9,6 +9,6 @@ const DashboardRouter: MyRouterObject[] = [
       key: 'dashboard',
       icon: <DashboardOutlined />,
     },
-    element
-  }
+    element,
+  },
 ]

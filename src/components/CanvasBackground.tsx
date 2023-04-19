@@ -3,7 +3,7 @@ import type { CircleType } from '@/utils'
 import { Circle } from '@/utils'
 import './canvasBackground.css'
 
-const CanvasBackground = () => {
+function CanvasBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const currentCircle: CircleType = new Circle(-1, -1, 8)
 

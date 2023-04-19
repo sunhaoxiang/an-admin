@@ -5,6 +5,6 @@ export async function userLoginApi(data: LoginData): Promise<LoginRes> {
   return axios({
     url: '/user/login',
     method: 'post',
-    data
+    data,
   })
 }

@@ -10,7 +10,7 @@ import { storage } from '@/utils'
 import CanvasBackground from '@/components/CanvasBackground'
 import './Login.css'
 
-const Login = () => {
+function Login() {
   const [form] = Form.useForm()
   const navigate = useNavigate()
   const auth = useAuth()
@@ -19,7 +19,7 @@ const Login = () => {
     const obj: LoginData = {
       email: values.email,
       passwd: SparkMd5.hash(values.passwd),
-      captcha: values.captcha
+      captcha: values.captcha,
     }
     const result = await userLoginApi(obj)
     if (result.token) {
@@ -33,17 +33,17 @@ const Login = () => {
   const [captcha, setCaptcha] = useState('/api/captcha')
 
   function handleCaptcha() {
-    setCaptcha('/api/captcha?' + SparkMd5.hash(new Date().getTime().toString()))
+    setCaptcha(`/api/captcha?${SparkMd5.hash(new Date().getTime().toString())}`)
   }
 
-  function handleTest () {
+  function handleTest() {
     fetch('/api/user/hi', {
       headers: {
-        'apiKey': import.meta.env.VITE_APP_API_KEY
-      }
+        apiKey: import.meta.env.VITE_APP_API_KEY,
+      },
     })
       .then(res => res.json())
-      .then(res => {
+      .then((res) => {
         console.log(res)
       })
   }
@@ -59,14 +59,14 @@ const Login = () => {
           size="large"
           initialValues={{
             email: '316783812@qq.com',
-            passwd: '316783812'
+            passwd: '316783812',
           }}
           onFinish={onFinish}
         >
           <Form.Item name="email" rules={
             [
               { required: true, message: 'Please enter the Email' },
-              { type: 'email', message: 'Please enter the correct Email' }
+              { type: 'email', message: 'Please enter the correct Email' },
             ]
           }>
             <Input placeholder="Username" prefix={<UserOutlined />} />

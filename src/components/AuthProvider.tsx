@@ -5,7 +5,7 @@ import type { LoginRes } from '@/types/user'
 const emptyUser: LoginRes = {
   _id: '',
   email: '',
-  token: ''
+  token: '',
 }
 
 export interface AuthContextType {
@@ -15,9 +15,9 @@ export interface AuthContextType {
   setToken: (token: string) => void
 }
 
-export const AuthContext = createContext<AuthContextType|null>(null)
+export const AuthContext = createContext<AuthContextType | null>(null)
 
-const AuthProvider = ({children}: {children: ReactNode}) => {
+function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<LoginRes>(emptyUser)
 
   const login = (user: LoginRes) => {
@@ -26,14 +26,13 @@ const AuthProvider = ({children}: {children: ReactNode}) => {
 
   const logout = () => {
     setUser(emptyUser)
-
   }
 
   const setToken = (token: string) => {
-    setUser({...user, token})
+    setUser({ ...user, token })
   }
 
-  return <AuthContext.Provider value={{user, login, logout, setToken}}>
+  return <AuthContext.Provider value={{ user, login, logout, setToken }}>
     {children}
   </AuthContext.Provider>
 }

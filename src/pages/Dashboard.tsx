@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { axios } from '@/utils'
 import { useAuth } from '@/hooks/useAuth'
 
-const Dashboard = () => {
+function Dashboard() {
   const auth = useAuth()
 
   const [data, setData] = useState([])
-  axios.get('/funnycoder').then(res => {
+  axios.get('/funnycoder').then((res) => {
 
   })
   useEffect(() => {

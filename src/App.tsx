@@ -3,7 +3,7 @@ import Router from './router/router'
 import AuthProvider from '@/components/AuthProvider'
 // import './App.css'
 
-const App = () => {
+function App() {
   return (
     <AuthProvider>
       <HashRouter>
