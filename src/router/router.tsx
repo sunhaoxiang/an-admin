@@ -7,7 +7,7 @@ const authRouter = []
 const rootRouter = [
   {
     path: '/',
-    element: <Navigate to='/dashboard' replace={true} />,
+    element: <Navigate to="/dashboard" replace={true} />,
   },
   {
     path: '/login',
@@ -24,10 +24,10 @@ const rootRouter = [
   },
 ]
 
-function router() {
+function Router() {
   const routes = useRoutes(rootRouter)
 
   return routes
 }
 
-export default router
+export default Router

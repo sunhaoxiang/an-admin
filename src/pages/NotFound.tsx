@@ -2,8 +2,8 @@ import { useNavigate } from 'react-router-dom'
 import { Button, Result } from 'antd'
 
 function NotFound() {
+  const navigate = useNavigate()
   function goHome() {
-    const navigate = useNavigate()
     navigate('/')
   }
 
