@@ -1,5 +1,5 @@
-import LayoutApp from "@/layout/LayoutApp";
 import { FormOutlined } from '@ant-design/icons'
+import LayoutApp from '@/layout/LayoutApp'
 import type { MyRouterObject } from '@/types/router'
 
 const FormRouter: MyRouterObject[] = [
@@ -9,7 +9,7 @@ const FormRouter: MyRouterObject[] = [
       title: 'Form',
       key: 'form',
       icon: <FormOutlined />,
-      index: 2
+      index: 2,
     },
     element: <LayoutApp />,
     children: [
@@ -20,8 +20,8 @@ const FormRouter: MyRouterObject[] = [
       {
         path: 'step',
         element: <div>Step</div>,
-      }
-    ]
+      },
+    ],
   },
 ]
 

@@ -1,5 +1,5 @@
-import LayoutApp from "@/layout/LayoutApp";
 import { DashboardOutlined } from '@ant-design/icons'
+import LayoutApp from '@/layout/LayoutApp'
 import type { MyRouterObject } from '@/types/router'
 
 const DashboardRouter: MyRouterObject[] = [
@@ -9,7 +9,7 @@ const DashboardRouter: MyRouterObject[] = [
       title: 'Dashboard',
       key: 'dashboard',
       icon: <DashboardOutlined />,
-      index: 1
+      index: 1,
     },
     element: <LayoutApp />,
     children: [
@@ -20,8 +20,8 @@ const DashboardRouter: MyRouterObject[] = [
       {
         path: '/dashboard/upload',
         element: <div>Upload</div>,
-      }
-    ]
+      },
+    ],
   },
 ]
 

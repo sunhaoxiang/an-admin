@@ -1,6 +1,7 @@
 import { HashRouter } from 'react-router-dom'
 import Router from './router/router'
 import AuthProvider from '@/components/AuthProvider'
+import AuthRouter from '@/components/AuthRouter'
 
 // import './App.css'
 
@@ -8,7 +9,9 @@ function App() {
   return (
     <AuthProvider>
       <HashRouter>
-        <Router />
+        <AuthRouter>
+          <Router />
+        </AuthRouter>
       </HashRouter>
     </AuthProvider>
   )

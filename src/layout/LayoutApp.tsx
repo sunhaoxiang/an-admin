@@ -1,4 +1,4 @@
-import { useNavigate, Outlet } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 
 function LayoutApp() {
   const navigate = useNavigate()
