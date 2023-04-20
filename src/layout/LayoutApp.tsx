@@ -1,5 +1,4 @@
-import { useNavigate } from 'react-router-dom'
-import { Button, Result } from 'antd'
+import { useNavigate, Outlet } from 'react-router-dom'
 
 function LayoutApp() {
   const navigate = useNavigate()
@@ -8,12 +7,15 @@ function LayoutApp() {
   }
 
   return (
-    <Result
-      status="404"
-      title="404"
-      subTitle="Sorry, the page you visited does not exist."
-      extra={<Button type="primary" onClick={goHome}>Back Home</Button>}
-    ></Result>
+    <div>
+      <div>header</div>
+      <div>sidebar</div>
+      <div>
+        <h2>hello</h2>
+        <Outlet />
+      </div>
+      <div>footer</div>
+    </div>
   )
 }
 
