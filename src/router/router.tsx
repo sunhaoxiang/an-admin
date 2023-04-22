@@ -1,6 +1,7 @@
 import { Navigate, useRoutes } from 'react-router-dom'
 import Login from '@/pages/Login'
 import NotFound from '@/pages/NotFound'
+import { normalizeRoute } from '@/utils'
 import type { MyRouterObject } from '@/types/router'
 
 const dynamicRoutes: MyRouterObject[] = []
@@ -17,10 +18,9 @@ Object.keys(authRoutes).forEach((item) => {
     return route
   })
   dynamicRoutes.push(...module)
-  // console.log(item, authRoutes[item])
 })
 
-const authRouter: MyRouterObject[] = []
+export const normalizeAuthRoutes = normalizeRoute(dynamicRoutes)
 
 export const rootRouter = [
   {
@@ -36,7 +36,7 @@ export const rootRouter = [
       auth: false,
     },
   },
-  ...dynamicRoutes,
+  ...normalizeAuthRoutes,
   {
     path: '/404',
     element: <NotFound />,

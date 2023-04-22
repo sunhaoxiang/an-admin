@@ -1,3 +1,4 @@
+import { resolvePath } from 'react-router-dom'
 import type { MyRouterObject } from '@/types/router'
 
 export function searchRoute(pathname: string, routes: MyRouterObject[]): MyRouterObject {
@@ -16,6 +17,28 @@ export function searchRoute(pathname: string, routes: MyRouterObject[]): MyRoute
   return result
 }
 
-export function normalizeRoute () {
+export function normalizeRoute(routes: MyRouterObject[], isSort = true): MyRouterObject[] {
+  const result: MyRouterObject[] = []
 
+  for (const route of routes) {
+    if (route.children) {
+      route.children.forEach((child) => {
+        child.path = resolvePath(child.path!, route.path).pathname
+      })
+      result.push({
+        ...route,
+        children: normalizeRoute(route.children, false),
+      })
+    }
+    else {
+      result.push(route)
+    }
+  }
+  if (isSort) {
+    result.sort((a, b) => {
+      return (a.meta?.index || 0) - (b.meta?.index || 0)
+    })
+  }
+
+  return result
 }
