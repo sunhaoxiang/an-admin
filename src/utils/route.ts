@@ -15,3 +15,7 @@ export function searchRoute(pathname: string, routes: MyRouterObject[]): MyRoute
 
   return result
 }
+
+export function normalizeRoute () {
+
+}
