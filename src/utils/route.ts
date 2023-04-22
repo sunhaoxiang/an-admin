@@ -53,6 +53,5 @@ export function getOpenKeys(path: string): string[] {
     arr.push(path.slice(0, i))
     i = i + 1
   }
-  console.log(arr)
   return arr
 }
