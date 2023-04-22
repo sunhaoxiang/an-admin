@@ -5,8 +5,8 @@ export interface LoginData {
 }
 
 export interface LoginRes {
-  token: string
   _id: string
+  token: string
   email: string
 }
 
