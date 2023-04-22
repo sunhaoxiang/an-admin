@@ -42,3 +42,17 @@ export function normalizeRoute(routes: MyRouterObject[], isSort = true): MyRoute
 
   return result
 }
+
+export function getOpenKeys(path: string): string[] {
+  let i = 1
+  const arr: string[] = []
+  while (true) {
+    i = path.indexOf('/', i)
+    if (i === -1)
+      break
+    arr.push(path.slice(0, i))
+    i = i + 1
+  }
+  console.log(arr)
+  return arr
+}

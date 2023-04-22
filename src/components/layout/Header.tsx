@@ -7,7 +7,7 @@ import { storage } from '@/utils'
 
 const { Header: AntdHeader } = Layout
 
-export const HeaderStyle: CSSProperties = {
+export const headerStyle: CSSProperties = {
   textAlign: 'center',
   color: '#fff',
   height: 64,
@@ -29,7 +29,7 @@ function Header() {
     }
   })
 
-  return <AntdHeader style={HeaderStyle}>
+  return <AntdHeader style={headerStyle}>
     <div>
       Welcome, {auth.user.email}
     </div>

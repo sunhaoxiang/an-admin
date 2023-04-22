@@ -1,13 +1,20 @@
+import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { Layout, Menu } from 'antd'
 import type { MenuProps } from 'antd'
 import { authRoutes } from '@/router/router'
+import { getOpenKeys } from '@/utils'
 
 const { Sider } = Layout
 
 function SideBar() {
   const { pathname } = useLocation()
   const navigate = useNavigate()
+  const [openKeys, setOpenKeys] = useState<string[]>(getOpenKeys(pathname))
+
+  useEffect(() => {
+    setOpenKeys(getOpenKeys(pathname))
+  }, [pathname])
 
   const items: MenuProps['items'] = authRoutes.map((route, i) => {
     const key = route.path || String(i)
@@ -29,13 +36,19 @@ function SideBar() {
     navigate(key)
   }
 
+  const onOpenChange: MenuProps['onOpenChange'] = (keys) => {
+    setOpenKeys(keys)
+  }
+
   return <Sider>
     <Menu
       mode="inline"
-      selectedKeys={[pathname]}
-      style={{ height: '100%' }}
       items={items}
+      selectedKeys={[pathname]}
+      openKeys={openKeys}
+      style={{ height: '100%' }}
       onClick={onClick}
+      onOpenChange={onOpenChange}
     >
 
     </Menu>
