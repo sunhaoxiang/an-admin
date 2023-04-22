@@ -6,12 +6,12 @@ import type { MyRouterObject } from '@/types/router'
 
 const dynamicRoutes: MyRouterObject[] = []
 
-const authRoutes: Record<string, {
+const authRouteModules: Record<string, {
   [key: string]: MyRouterObject[]
 }> = import.meta.glob('./dynamic/*.tsx', { eager: true })
 
-Object.keys(authRoutes).forEach((item) => {
-  const module = authRoutes[item].default.map((route) => {
+Object.keys(authRouteModules).forEach((item) => {
+  const module = authRouteModules[item].default.map((route) => {
     route.meta!.auth = true
     route.meta!.index = route.meta?.index || -1
 
@@ -20,7 +20,7 @@ Object.keys(authRoutes).forEach((item) => {
   dynamicRoutes.push(...module)
 })
 
-export const normalizeAuthRoutes = normalizeRoute(dynamicRoutes)
+export const authRoutes = normalizeRoute(dynamicRoutes)
 
 export const rootRouter = [
   {
@@ -36,7 +36,7 @@ export const rootRouter = [
       auth: false,
     },
   },
-  ...normalizeAuthRoutes,
+  ...authRoutes,
   {
     path: '/404',
     element: <NotFound />,

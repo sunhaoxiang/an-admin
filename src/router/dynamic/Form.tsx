@@ -16,10 +16,16 @@ const FormRouter: MyRouterObject[] = [
       {
         path: 'validate',
         element: <div>Validate</div>,
+        meta: {
+          title: 'Validate',
+        },
       },
       {
         path: 'step',
         element: <div>Step</div>,
+        meta: {
+          title: 'Step',
+        },
       },
     ],
   },

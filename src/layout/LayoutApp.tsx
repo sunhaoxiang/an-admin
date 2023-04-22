@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom'
 import { Layout, Space } from 'antd'
 import Header from '@/components/layout/Header'
+import SideBar from '@/components/layout/SideBar'
 
 const {
   Content,
@@ -12,6 +13,7 @@ function LayoutApp() {
     <Layout>
       <Header />
       <Layout style={{ padding: '0 24px' }}>
+        <SideBar />
         <Content>
           <Outlet />
         </Content>

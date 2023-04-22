@@ -16,10 +16,16 @@ const DashboardRouter: MyRouterObject[] = [
       {
         path: 'index',
         element: <div>Dashboard</div>,
+        meta: {
+          title: 'Dashboard',
+        },
       },
       {
         path: '/dashboard/upload',
         element: <div>Upload</div>,
+        meta: {
+          title: 'Upload',
+        },
       },
     ],
   },
