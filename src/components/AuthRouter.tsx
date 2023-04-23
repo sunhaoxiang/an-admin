@@ -1,5 +1,5 @@
 import { Navigate, useLocation } from 'react-router-dom'
-import {Watermark} from "antd";
+import { Watermark } from 'antd'
 import { rootRouter } from '@/router/router'
 import { searchRoute, storage } from '@/utils'
 import { useAuth } from '@/hooks/useAuth'
