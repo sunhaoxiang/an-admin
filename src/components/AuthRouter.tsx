@@ -1,5 +1,5 @@
 import { Navigate, useLocation } from 'react-router-dom'
-import { Watermark } from 'antd'
+import Watermark from '@/components/WaterMark'
 import { rootRouter } from '@/router/router'
 import { searchRoute, storage } from '@/utils'
 import { useAuth } from '@/hooks/useAuth'
@@ -17,7 +17,8 @@ function AuthRouter({ children }: { children: JSX.Element }) {
   if (!auth.user || !token)
     return <Navigate to="/login" replace={true} />
 
-  return <Watermark content={auth.user.email}>
+  // return children
+  return <Watermark text={auth.user.email}>
     {children}
   </Watermark>
 }
