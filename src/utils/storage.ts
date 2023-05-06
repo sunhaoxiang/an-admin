@@ -1,4 +1,4 @@
-const storagePrefix = 'solar-admin'
+const storagePrefix = 'an-admin'
 
 export const storage = {
   getToken() {
